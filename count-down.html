@@ -17,20 +17,35 @@
     <script>
         var change = document.getElementById('change')
         var count = document.getElementById('count')
-        var time =0;
-        loopSleep(6,1000, function(i){
-            time = 5-i;
-            count.innerHTML = time;
-            console.log((i+1)+'秒経過');
-            if(i==0){
-                change.innerHTML = '<p>カウントダウン</p>'
+        var time =6;
+        // loopSleep(6,1000, function(i){
+        //     time = 5-i;
+        //     count.innerHTML = time;
+        //     console.log((i+1)+'秒経過');
+        //     if(i==0){
+        //         change.innerHTML = '<p>カウントダウン</p>'
+        //     }
+        // });
+        change.innerHTML ='<p>カウントダウン</p>';
+
+        window.onload = function () {
+            // setIntervalの基本
+            var timer1 = null;
+            var cnt = 0;
+            function event() {
+                cnt++;
+                if (cnt >= 6 && timer1 != null) {
+                    // 5回以上表示したら、タイマーを停止する
+                    clearInterval(timer1);
+                }
+                // 1000ミリ秒ごとにコンソールに表示
+                console.log('this time number is: ' + cnt);
+                count.innerHTML = time=time-1;
             }
-        });
-
+            // タイマー開始
+            timer1 = setInterval(event, 1000);
+        }
     </script>
-
-    <p>1,2,3,4,5,..(腕立てのカウント)</p>
-    <p>勝敗</p>
 </div>
 
 </body>
