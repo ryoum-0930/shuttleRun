@@ -4,18 +4,6 @@
         <meta charset="utf-8">
         <title>shuttle-run</title>
         <style>
-            .center{
-                /* border: 1px solid #aaa; */
-                /* width: 400px; */
-                text-align: center;
-            }
-            .inner{
-                position:absolute;
-                top:50%;
-                left: 50%;
-                transform: translateX(-50%) translateY(-50%);
-                /* -webkit- transform:translateY(-50%) translateX(-50%); */
-            }
             .pos-colu{
                 display:flex;
                 flex-direction: column;
@@ -29,7 +17,13 @@
                 border-style:none;
                 display: block;
                 margin:auto;
-                margin-left: 140px;
+                margin-left: 50%;
+                transform: translateX(-50%) translateY(-30%);
+                height:20%;
+                width: 50%;
+            }
+            .parent img{
+                width: 100%;
             }
             .target{
                 top:60%;
@@ -48,7 +42,6 @@
     <div class='parent'>
             <img src="./img/join_form_layout.png" alt="form">
             <div class='pos-colu'>
-                <!-- 綱引き　未接続 -->
                 <div id='demo'>
                     <button class='target' v-on:click="click_1(); click_2()"><img src='./img/botton3.png' alt='join BUTTON'></button>
                 </div>
