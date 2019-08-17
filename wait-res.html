@@ -5,18 +5,28 @@
         <title>shuttle-run</title>
         <!-- <script type='./javaScript' src='count.js'></script> -->
         <style>
-            pri{
-                display: none;
-            }
         </style>
     </head>
     <body>
         <div id='layer'></div>
         <div id='popup'>
-            <script src='./javaScript/count.js'></script>
-            <p>始まるまでしばらくお待ちください...</p>
-            <p>5,4,3,2,1(カウントダウン)</p>
-            <p　id='pri'>1,2,3,4,5,..(腕立てのカウント)</p>
+            <script src='./javaScript/loopSleep.js'></script>
+            <p id='change'>始まるまでしばらくお待ちください...</p>
+            <script>
+                var change = document.getElementById('change')
+                var count = document.getElementById('count')
+                var time =0;
+                loopSleep(5,1000, function(i){
+                    console.log((i+1)+'秒経過');
+                    // count.innerHTML = '<p>i</p>';
+                    if(i==4){
+                        change.innerHTML = '<p>カウントダウン</p>'
+                    }
+                });
+
+            </script>
+            <p id='count'>始まるよ</p>
+            <p>1,2,3,4,5,..(腕立てのカウント)</p>
             <p>勝敗</p>
         </div>
 
