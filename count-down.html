@@ -11,6 +11,7 @@
 <div id='layer'></div>
 <div id='popup'>
     <script src='./javaScript/loopSleep.js'></script>
+    <button onclick="location.href='./count-up.html'"></button>
     <p id='change'>始まるまでしばらくお待ちください...</p>
     <p id='count'>始まるよ</p>
     <script>
@@ -21,7 +22,7 @@
             time = 5-i;
             count.innerHTML = time;
             console.log((i+1)+'秒経過');
-            if(i==4){
+            if(i==0){
                 change.innerHTML = '<p>カウントダウン</p>'
             }
         });
