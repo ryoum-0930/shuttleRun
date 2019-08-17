@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>shuttle-run</title>
+        <!-- <script type='./javaScript' src='count.js'></script> -->
+        <style>
+            .pos-colu{
+                display:flex;
+                flex-direction: column;
+            }
+            .parent{
+                position: relative;
+            }
+            .parent button{
+                position:absolute;
+                background-color: #c71111;
+                border-style:none;
+                display: block;
+                margin:auto;
+                margin-left: 110px;
+            }
+            .target{
+                top:68%;
+            }
+            .target2{
+                top:78%
+            }
+        </style>
+    </head>
+    <body>
+        <div class='parent'>
+            <img src="./img/menu_form_layout.png" alt="logo">
+            <div class='pos-colu'>
+                <!-- 綱引き　未接続 -->
+                <button class='target' type='button' onclick="location.href='./regi.html'"><img src="./img/botton.png" alt="MENU1 BOTTON"></button>
+                <!-- シャトルラン　接続済み -->
+                <button class='target2' type='button' onclick="location.href='./regi.html'"><img src="./img/botton2.png" alt="MENU2 BOTTON"></button>
+                <!-- <button class="color">aaa</button> -->
+            </div>
+        </div>
+    </body>
+</html>
