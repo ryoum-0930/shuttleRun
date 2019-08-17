@@ -13,6 +13,7 @@
             // サーバーからの応答があるまでGET、応答が返ってきたら処理
             const numOfTime = 5; // ループ数
             const delay = 1000; // スリーブ時間 ms
+            var host = `http://localhost:63342/shuttleRun/regi.html?_ijt=o7grd4utce12v9ov1a2gvaaktd`
             let response = null; // 結果
 
             // 条件
@@ -35,10 +36,23 @@
             const loopFunc = async (delay, numOfTime, judge) => {
                 const arr = Array.from({length: numOfTime}, (v, k) => k);
                 for(let i of arr){
-                    await axios.get('https://www.google.com') // URLは任意
+                    await axios.post(host) // URLは任意
                         .then(function (response) {
                             console.log(i, response);
-                            return Promise.resolve(response);
+                            // return Promise.resolve(response);
+                             // 非同期処理
+                            $(function() {
+                                $.ajax({
+                                    url: './count-down.html',
+                                    dataType: 'html',
+                                    success: function(data) {
+                                        $('#text').html(data);
+                                    },
+                                    error: function(data) {
+                                        alert('error');
+                                    }
+                                });
+                            });
                         })
                         .catch(function (error) {
                             console.log(error);
