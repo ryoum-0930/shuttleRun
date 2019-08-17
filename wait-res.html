@@ -7,7 +7,55 @@
         <style>
         </style>
         <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
         <script>
+            // サーバーからの応答があるまでGET、応答が返ってきたら処理
+            const numOfTime = 5; // ループ数
+            const delay = 1000; // スリーブ時間 ms
+            let response = null; // 結果
+
+            // 条件
+            const judge = function(data) {
+                // 何かしらの条件
+                if(response.code == 'OK') return true;
+                return false;
+            };
+
+            // スリーブ
+            function sleep(time) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve();
+                    }, time);
+                });
+            }
+
+            // ループ
+            const loopFunc = async (delay, numOfTime, judge) => {
+                const arr = Array.from({length: numOfTime}, (v, k) => k);
+                for(let i of arr){
+                    await axios.get('https://www.google.com') // URLは任意
+                        .then(function (response) {
+                            console.log(i, response);
+                            return Promise.resolve(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                    // 条件処理を追加
+                    if(judge(responce)){
+                        return Promise.resolve(1);
+                    }
+                    await sleep(delay);
+                }
+            };
+            loopFunc(delay, numOfTime, judge).then(()=>{
+                console.log('done!!');
+            });
+        </script>
+        <script>
+            // 非同期処理
             $(function() {
                 $('#button').click(
                     function() {
