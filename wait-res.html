@@ -12,20 +12,22 @@
         <div id='popup'>
             <script src='./javaScript/loopSleep.js'></script>
             <p id='change'>始まるまでしばらくお待ちください...</p>
+            <p id='count'>始まるよ</p>
             <script>
                 var change = document.getElementById('change')
                 var count = document.getElementById('count')
                 var time =0;
                 loopSleep(5,1000, function(i){
+                    time = 5-i;
+                    count.innerHTML = time;
                     console.log((i+1)+'秒経過');
-                    // count.innerHTML = '<p>i</p>';
                     if(i==4){
                         change.innerHTML = '<p>カウントダウン</p>'
                     }
                 });
 
             </script>
-            <p id='count'>始まるよ</p>
+
             <p>1,2,3,4,5,..(腕立てのカウント)</p>
             <p>勝敗</p>
         </div>
