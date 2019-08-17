@@ -30,11 +30,43 @@
         </style>
     </head>
     <body>
-        <div class="inner">
-            <div class='center'>
-                <button class='btn-text-3d' type='button' onclick="location.href='./wait-res.html'">筋トレに参加する</button>
-            </div>
-        </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+    <script src='./javaScript/click.js'></script>
+    <!--<div class="inner">-->
+            <!--<div class='center'>-->
+                <!--<button class='btn-text-3d' type='button' onclick="location.href='./wait-res.html'">筋トレに参加する</button>-->
+            <!--</div>-->
+    <!--</div>-->
+    <div id='demo'>
+        <button v-on:click="click_1(); click_2()">筋トレに参加</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                list: []
+            },
+            methods: {
+                click_1: function() {
+                    // ページ遷移
+                    window.location.href ='./wait-res.html'
+                },
+                // click_2: function() {
+                //     // GET
+                //     axios.get('http://localhost:63342/shuttleRun/regi.html?_ijt=o7grd4utce12v9ov1a2gvaaktd')
+                //     //thenで成功した場合
+                //         .then(function (response) {
+                //             console.log(response.status);
+                //         })
+                //         //chachでエラーの挙動を定義
+                //         .catch(function (error) {
+                //             console.log(error.response.status);
+                //         });
+                // }
+            }
+        })
+    </script>
 
     </body>
 </html>
