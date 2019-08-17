@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>shuttle-run</title>
+        <!-- <script type='./javaScript' src='count.js'></script> -->
+        <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+        <style>
+        </style>
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <script>
+            $(function() {
+                $('#button').click(
+                    function() {
+                        $.ajax({
+                            url: './count-down.html',
+                            dataType: 'html',
+                            success: function(data) {
+                                $('#text').html(data);
+                            },
+                            error: function(data) {
+                                alert('error');
+                            }
+                        });
+                    }
+                );
+            });
+        </script>
+    </head>
+    <body>
+        <div id='text'>
+            <!-- <input type="button" id="button" value="button"/>
+            <button class='btn-text-3d' type='button' onclick="location.href='./count-down.html'"></button> -->
+            <script src='./javaScript/loopSleep.js'></script>
+            <p>PUSH UP !!!</p>
+            <p id='count'>カウントアップ</p>
+            <script>
+                var change = document.getElementById('change')
+                var count = document.getElementById('count')
+                var time =0;
+                var push_up = 0;
+                var c1 = 3000;
+                loopSleep(15,c1, function(i){
+                    count.innerHTML = push_up=push_up+1;
+                    console.log(push_up);
+                    if(push_up==5){
+                        alert('YOU WIN !!');
+                    }
+                });
+            </script>
+        </div>
+    </body>
+</html>

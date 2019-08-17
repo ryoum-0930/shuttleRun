@@ -12,7 +12,13 @@ function loopSleep(_loopLimit,_interval, _mainFunc){
         i = i + 1;
         if (i < loopLimit) {
             setTimeout(loopFunc, interval);
-            }
         }
-        loopFunc();
     }
+    loopFunc();
+}
+
+function sleep(waitSec) {
+    return new Promise(function (resolve) {
+        setTimeout(function() { resolve() }, waitSec);
+    });
+}
