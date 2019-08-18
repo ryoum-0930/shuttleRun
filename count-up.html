@@ -43,13 +43,7 @@
                 var time =0;
                 var push_up = 0;
                 var c1 = 3000;
-                loopSleep(15,c1, function(i){
-                    count.innerHTML = push_up=push_up+1;
-                    console.log(push_up);
-                    // if(push_up==5){
-                    //     alert('YOU WIN !!');
-                    // }
-                });
+
                 var nextTime = new Number();
                 var status = new Boolean();
                 var upOk = 0;
@@ -70,6 +64,8 @@
                         .catch(function (error) {
                             console.log(error);
                         });
+
+                        //
                     } else {
                     // 失敗POST
                         await axios.post(host, {
@@ -92,6 +88,10 @@
 
                     // 継続の場合、次のゲーム
                     if (status == true) {
+                        // カウントアップロジック
+                        push_up  = push_up+1;
+                        count.innerHTML = push_up;
+                        console.log(push_up);
                         setTimeout(game(), nextTime);
                     } else {
                         //終了の場合、ページ遷移
