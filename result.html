@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>shuttle-run</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+<script src='./javaScript/click.js'></script>
+<script>
+    const host = `hogehoge` // TODO サーバーのURLに変更
+    var result = new String();
+    var count = new Number();
+    axios.post(host)
+    .then(function (responce) {
+        result = responce.get(`result`);
+        count = responce.get(`count`);
+    })
+</script>
+<div>
+    <p>{{ result }}</p>
+    <br>
+    <p>{{ count }}</p>
+</div>
+<script>
+    new Vue({
+        el: '#demo',
+        data: {
+            result: result,
+            count: count
+        },
+    })
+</script>
+
+</body>
+</html>
