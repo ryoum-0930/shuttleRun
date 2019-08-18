@@ -6,6 +6,49 @@
         <!-- <script type='./javaScript' src='count.js'></script> -->
         <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
         <style>
+            .parent{
+                position: relative;
+            }
+            .parent .font{
+                position:absolute;
+                /* display: flex;
+                flex-direction: column; */
+                background-color: #c71111;
+                border-style:none;
+                margin-left: 50%;
+                top:60%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+            .parent .target{
+                position:absolute;
+                /* display: flex;
+                flex-direction: column; */
+                background-color: #c71111;
+                border-style:none;
+                margin-left: 50%;
+                top:45%;
+                /* width:80%; */
+                transform: translateX(-50%) translateY(-50%);
+            }
+            .parent img{
+                width: 100%;
+            }
+            .font{
+                /* background-color: #fff; */
+                color:#fff;
+                font-size: 4rem;
+                text-align: center;
+                /* font-size:5em; */
+                font-weight: bold;
+                /* height: 5rem; */
+            }
+            .target{
+                color:#fff;
+                font-size: 5rem;
+            }
+            p {
+                font-family: 'M PLUS Rounded 1c';
+            }
         </style>
         <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
         <script>
@@ -32,8 +75,13 @@
             <!-- <input type="button" id="button" value="button"/>
             <button class='btn-text-3d' type='button' onclick="location.href='./count-down.html'"></button> -->
             <script src='./javaScript/loopSleep.js'></script>
-            <p>PUSH UP !!!</p>
-            <p id='count'>カウントアップ</p>
+            <div class='parent'>
+                <img src="./img/count_form_layout.png" alt="logo">
+                <div class='pos-colu'>
+                    <p class="target">PUSH UP !!!</p>
+                    <p id='count' class='font'>カウントアップ</p>
+                </div>
+            </div>
 
             <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
