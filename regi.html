@@ -4,69 +4,76 @@
         <meta charset="utf-8">
         <title>shuttle-run</title>
         <style>
-            .center{
-                /* border: 1px solid #aaa; */
-                /* width: 400px; */
-                text-align: center;
+            .pos-colu{
+                display:flex;
+                flex-direction: column;
             }
-            .inner{
+            .parent{
+                position: relative;
+            }
+            .parent button{
                 position:absolute;
-                top:50%;
-                left: 50%;
-                transform: translateX(-50%) translateY(-50%);
-                /* -webkit- transform:translateY(-50%) translateX(-50%); */
+                background-color: #c71111;
+                border-style:none;
+                display: block;
+                margin:auto;
+                margin-left: 50%;
+                transform: translateX(-50%) translateY(-30%);
+                height:20%;
+                width: 50%;
             }
-            .btn-text-3d{
-                text-decoration: none;
-                font-weight: bold;
-                font-size: 45px;
-                color: #799dec;
-                text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+            .parent img{
+                width: 100%;
             }
-            .btn-text-3d:active {
-                top: 4px;
-                text-shadow: none;
+            .target{
+                top:60%;
             }
         </style>
     </head>
     <body>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
-    <script src='./javaScript/click.js'></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
+        <script src='./javaScript/click.js'></script>
     <!--<div class="inner">-->
             <!--<div class='center'>-->
                 <!--<button class='btn-text-3d' type='button' onclick="location.href='./wait-res.html'">筋トレに参加する</button>-->
             <!--</div>-->
     <!--</div>-->
-    <div id='demo'>
-        <button v-on:click="click_1(); click_2()">筋トレに参加</button>
+    <div class='parent'>
+            <img src="./img/join_form_layout.png" alt="form">
+            <div class='pos-colu'>
+                <div id='demo'>
+                    <button class='target' v-on:click="click_1(); click_2()"><img src='./img/botton3.png' alt='join BUTTON'></button>
+                </div>
+            </div>
     </div>
-    <script>
-        new Vue({
-            el: '#demo',
-            data: {
-                list: []
-            },
-            methods: {
-                click_1: function() {
-                    // ページ遷移
-                    window.location.href ='./wait-res.html'
+        <script>
+            new Vue({
+                el: '#demo',
+                data: {
+                    list: []
                 },
-                // click_2: function() {
-                //     // GET
-                //     axios.get('http://localhost:63342/shuttleRun/regi.html?_ijt=o7grd4utce12v9ov1a2gvaaktd')
-                //     //thenで成功した場合
-                //         .then(function (response) {
-                //             console.log(response.status);
-                //         })
-                //         //chachでエラーの挙動を定義
-                //         .catch(function (error) {
-                //             console.log(error.response.status);
-                //         });
-                // }
-            }
-        })
-    </script>
+                methods: {
+                    click_1: function() {
+                        // ページ遷移
+                        window.location.href ='./wait-res.html'
+                    },
+                    // click_2: function() {
+                    //     // GET
+                    //     axios.get('http://localhost:63342/shuttleRun/regi.html?_ijt=o7grd4utce12v9ov1a2gvaaktd')
+                    //     //thenで成功した場合
+                    //         .then(function (response) {
+                    //             console.log(response.status);
+                    //         })
+                    //         //chachでエラーの挙動を定義
+                    //         .catch(function (error) {
+                    //             console.log(error.response.status);
+                    //         });
+                    // }
+                }
+            })
+        </script>
+
 
     </body>
 </html>

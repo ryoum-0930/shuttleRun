@@ -5,11 +5,35 @@
         <title>shuttle-run</title>
         <!-- <script type='./javaScript' src='count.js'></script> -->
         <style>
+            .pos-colu{
+                display:flex;
+                flex-direction: column;
+            }
+            .parent{
+                position: relative;
+            }
+            .parent p{
+                position:absolute;
+                background-color: #c71111;
+                border-style:none;
+                display: block;
+                margin:auto;
+                margin-left: 85px;
+                height: 30%;
+                /* width: 80%; */
+            }
+            .parent img{
+                width: 100%;
+            }
+            .font{
+                color:#fff;
+                font-size: 3rem;
+                top:60%;
+            }
         </style>
         <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
-        <script ></script>
         <script>
             // サーバーからの応答があるまでGET、応答が返ってきたら処理
             const numOfTime = 5; // ループ数
@@ -73,11 +97,14 @@
     <body>
         <div id='text'>
             <input type="button" id="button" value="button"/>
-            <button class='btn-text-3d' type='button' onclick="location.href='./count-down.html'"></button>
-            <div id='layer'></div>
-            <div id='popup'>
-                <script src='./javaScript/loopSleep.js'></script>
-                <p id='change'>始まるまでしばらくお待ちください...</p>
+            <button type='button' onclick="location.href='./count-down.html'"></button>
+            <div class='parent'>
+                    <img src="./img/count_form_layout.png" alt="form">
+                    <div class='pos-colu'>
+                        <div id='demo'>
+                            <p id='change' class='font'>始まるまでしばらくお待ちください...</p>
+                        </div>
+                    </div>
             </div>
         </div>
     </body>

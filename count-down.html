@@ -6,6 +6,36 @@
     <!-- <script type='./javaScript' src='count.js'></script> -->
     <meta http-equiv="refresh"content="6; url=./count-up.html">
     <style>
+        .pos-colu{
+            display:flex;
+            flex-direction: column;
+        }
+        .parent{
+            position: relative;
+        }
+        .parent p{
+            position:absolute;
+            background-color: #c71111;
+            border-style:none;
+            /* display: block; */
+            /* margin:auto; */
+            text-align: center;
+            margin-left: 85px;
+            height: 30%;
+        }
+        .parent img{
+            width: 100%;
+        }
+        .font{
+            /* background-color: #fff; */
+            color:#fff;
+            font-size: 3rem;
+            top:60%;
+            text-align: center;
+            font-size:5em;
+            font-weight: bold;
+            /* font-family: M PLUS Rounded 1c; */
+        }
     </style>
 </head>
 <body>
@@ -13,8 +43,16 @@
 <div id='popup'>
     <script src='./javaScript/loopSleep.js'></script>
     <!-- <button onclick="location.href='./count-up.html'"></button> -->
-    <p id='change'>始まるまでしばらくお待ちください...</p>
-    <p id='count'>始まるよ</p>
+    <!-- <p id='count'>始まるよ</p> -->
+    <div class='parent'>
+        <img src="./img/count_form_layout.png" alt="form">
+        <div class='pos-colu'>
+            <div id='demo'>
+                <p id='change'>始まるまでしばらくお待ちください...</p>
+                <p id='count' class='font'>始まるよ</p>
+            </div>
+        </div>
+    </div>
     <script>
         var change = document.getElementById('change')
         var count = document.getElementById('count')
