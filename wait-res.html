@@ -93,25 +93,6 @@
                 console.log('done!!');
             });
         </script>
-        <script>
-            // 非同期処理
-            $(function() {
-                $('#button').click(
-                    function() {
-                        $.ajax({
-                            url: './count-down.html',
-                            dataType: 'html',
-                            success: function(data) {
-                                $('#text').html(data);
-                            },
-                            error: function(data) {
-                                alert('error');
-                            }
-                        });
-                    }
-                );
-            });
-        </script>
     </head>
     <body>
         <div id='text'>

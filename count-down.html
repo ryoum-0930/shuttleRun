@@ -57,14 +57,14 @@
         var change = document.getElementById('change')
         var count = document.getElementById('count')
         var time =6;
-        // loopSleep(6,1000, function(i){
-        //     time = 5-i;
-        //     count.innerHTML = time;
-        //     console.log((i+1)+'秒経過');
-        //     if(i==0){
-        //         change.innerHTML = '<p>カウントダウン</p>'
-        //     }
-        // });
+        loopSleep(6,1000, function(i){
+            time = 5-i;
+            count.innerHTML = time;
+            console.log((i+1)+'秒経過');
+            if(i==0){
+                change.innerHTML = '<p>カウントダウン</p>'
+            }
+        });
         change.innerHTML ='<p>カウントダウン</p>';
 
         window.onload = function () {

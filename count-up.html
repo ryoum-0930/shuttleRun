@@ -34,25 +34,92 @@
             <script src='./javaScript/loopSleep.js'></script>
             <p>PUSH UP !!!</p>
             <p id='count'>カウントアップ</p>
+
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script>
             <script>
-                var change = document.getElementById('change')
-                var count = document.getElementById('count')
+                var change = document.getElementById('change');
+                var count = document.getElementById('count');
                 var time =0;
                 var push_up = 0;
                 var c1 = 3000;
-                // loopSleep(15,c1, function(i){
-                //     count.innerHTML = push_up=push_up+1;
-                //     console.log(push_up);
-                //     if(push_up==5){
-                //         alert('YOU WIN !!');
-                //     }
-                // });
-                function game(){
-                    //post送信{}
-                        //responseの受け取り{}
-                            //待ち時間取得ix[ms]
-                                //setTimeout(game,ix)
+                loopSleep(15,c1, function(i){
+                    count.innerHTML = push_up=push_up+1;
+                    console.log(push_up);
+                    // if(push_up==5){
+                    //     alert('YOU WIN !!');
+                    // }
+                });
+                var nextTime = new Number();
+                var status = new Boolean();
+                var upOk = 0;
+                var downOk = 0;
+                async function game(){
+                    // 成功POST
+                    if (upOk == 1 && downOk == 1) {
+                        await axios.post(host, {
+                            judge: `true`
+                        })
+                        //responseの受け取り
+                        .then(function (response) {
+                            nextTime = response.get(`nextTime`);
+                            console.log(nextTime);
+                            status = response.get(`status`);
+                            console.log(status);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                    } else {
+                    // 失敗POST
+                        await axios.post(host, {
+                            judge: `false`
+                        })
+                        //responseの受け取り
+                            .then(function (response) {
+                                nextTime = response.get(`nextTime`);
+                                console.log(nextTime);
+                                status = response.get(`result`);
+                                console.log(status);
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    }
+                    upOk = 0;
+                    downOk = 0;
+                    push_up = push_up + 1;
+
+                    // 継続の場合、次のゲーム
+                    if (status == true) {
+                        setTimeout(game(), nextTime);
+                    } else {
+                        //終了の場合、ページ遷移
+                        $(function() {
+                            $.ajax({
+                                url: './result.html',
+                                dataType: 'html',
+                                success: function(data) {
+                                    $('#text').html(data);
+                                },
+                                error: function(data) {
+                                    alert('error');
+                                }
+                            });
+                        });
+                    }
                 }
+            </script>
+            <script type="text/javascript">
+            window.addEventListener("devicemotion", function(evt) {
+                let aZ = evt.acceleration.z;
+                if (aZ > 2) {
+                    upOk = 1
+                    }
+                if (aZ < -2) {
+                    downOk = 1
+                    }
+            }, true);
             </script>
         </div>
     </body>
